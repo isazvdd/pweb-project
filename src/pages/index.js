@@ -26,10 +26,8 @@ export default function Index() {
     else setUrl("");
   };
 
-<<<<<<< HEAD
   return (
     <div>
-      <TheLink url={url} handler={onClickHandler} />
       <TheMusics
         data={
           error ? { error: "Erro na pesquisa" } : data ? data : { Search: "" }
@@ -38,13 +36,6 @@ export default function Index() {
       />
     </div>
   );
-=======
-    return (
-        <div>
-            <TheMusics data={error ? { error: 'Erro na pesquisa' } : data ? data : { Search: '' }} show={url !== ''} />
-        </div>
-    )
->>>>>>> 634e561 (Connected to API LastFM)
 }
 
 async function theFetcher(url) {
@@ -96,7 +87,7 @@ export function TheMusics({ data, show }) {
           >
             <Search
               name="key"
-              placeholder="Pesquise por filmes"
+              placeholder="Pesquise por músicas"
               allowClear
               enterButton="Pesquisar"
               onSearch={onSearch}
@@ -120,26 +111,19 @@ export function TheMusics({ data, show }) {
               }}
             >
               {" "}
-              Filmes encontrados:
+              Músicas encontradas:
             </h2>
             <div>
-              {data.Search.map((m) => (
-                <Popover
-                  content={(content) => {
-                    return (content = <img src={m.Poster}></img>);
-                  }}
-                  placement="right"
-                  trigger="hover"
-                >
-                  <Button style={{ display: "block", margin: "1rem auto" }}>
-                    <Link href={`/music/${m.imdbID}`}>
-                      {m.Title} ({m.Year})
+              <ul>
+                {data.results.albummatches.album.map((m) => (
+                  <il style={{ display: "block", margin: "1rem auto" }}>
+                    <Link href={`/onemovie/${m.imdbID}`}>
+                      {m.name} --- {m.artist}
                     </Link>
-                  </Button>
-                </Popover>
-              ))}
+                  </il>
+                ))}
+              </ul>
             </div>
-<<<<<<< HEAD
           </div>
         </div>
       </section>
@@ -158,28 +142,6 @@ export function TheLink({ url, handler }) {
   );
 }
 
-=======
-            <section className='container'>
-                <div className='row'>
-                    <div className='col p-0 mt-3'>
-                        <h2 style={{ display: "flex", width: "100%", justifyContent: "center", background: "white", borderRadius: "5px", padding: "10px", color: "#1677ff" }} > Filmes encontrados:</h2>
-                        <div>
-                            <ul>
-                                {data.results.albummatches.album.map((m) => (
-                                    <il style={{ display: "block", margin: "1rem auto" }}><Link href={`/onemovie/${m.imdbID}`}>
-                                        {m.name} --- {m.artist}
-                                    </Link></il>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section >
-        </div >
-    )
-}
-
->>>>>>> 634e561 (Connected to API LastFM)
 export function GoBack() {
   const router = useRouter();
   return <a onClick={() => router.back()}>Voltar</a>;
