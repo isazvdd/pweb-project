@@ -26,6 +26,7 @@ export default function Index() {
     else setUrl("");
   };
 
+<<<<<<< HEAD
   return (
     <div>
       <TheLink url={url} handler={onClickHandler} />
@@ -37,6 +38,13 @@ export default function Index() {
       />
     </div>
   );
+=======
+    return (
+        <div>
+            <TheMusics data={error ? { error: 'Erro na pesquisa' } : data ? data : { Search: '' }} show={url !== ''} />
+        </div>
+    )
+>>>>>>> 634e561 (Connected to API LastFM)
 }
 
 async function theFetcher(url) {
@@ -131,6 +139,7 @@ export function TheMusics({ data, show }) {
                 </Popover>
               ))}
             </div>
+<<<<<<< HEAD
           </div>
         </div>
       </section>
@@ -149,6 +158,28 @@ export function TheLink({ url, handler }) {
   );
 }
 
+=======
+            <section className='container'>
+                <div className='row'>
+                    <div className='col p-0 mt-3'>
+                        <h2 style={{ display: "flex", width: "100%", justifyContent: "center", background: "white", borderRadius: "5px", padding: "10px", color: "#1677ff" }} > Filmes encontrados:</h2>
+                        <div>
+                            <ul>
+                                {data.results.albummatches.album.map((m) => (
+                                    <il style={{ display: "block", margin: "1rem auto" }}><Link href={`/onemovie/${m.imdbID}`}>
+                                        {m.name} --- {m.artist}
+                                    </Link></il>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section >
+        </div >
+    )
+}
+
+>>>>>>> 634e561 (Connected to API LastFM)
 export function GoBack() {
   const router = useRouter();
   return <a onClick={() => router.back()}>Voltar</a>;
