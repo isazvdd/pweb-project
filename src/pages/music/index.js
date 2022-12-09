@@ -10,7 +10,7 @@ export default function Musics() {
   const { imdbID } = router.query;
 
   const { data, error } = useSWR(
-    `http://ws.audioscrobbler.com/2.0/?method=album.search&album=${imdbID}&api_key=e40e5d1c2779cb5d11f90299890b38ac&format=json`,
+    `https://digimoncard.io/api-public/getAllCards.php?sort=name&series=Digimon Card Game&sortdirection=asc`,
     fetcher
   );
 

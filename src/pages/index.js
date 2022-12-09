@@ -13,7 +13,7 @@ const { Search } = Input;
 
 export default function Index() {
   const [url, setUrl] = useState(
-    "http://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=e40e5d1c2779cb5d11f90299890b38ac&format=json"
+    "https://digimoncard.io/api-public/getAllCards.php?sort=name&series=Digimon Card Game&sortdirection=asc"
   );
   const { data, error } = useSWR(url, theFetcher);
 
@@ -21,7 +21,7 @@ export default function Index() {
     e.preventDefault();
     if (url === "")
       setUrl(
-        "http://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=e40e5d1c2779cb5d11f90299890b38ac&format=json"
+        "https://digimoncard.io/api-public/getAllCards.php?sort=name&series=Digimon Card Game&sortdirection=asc"
       );
     else setUrl("");
   };
@@ -115,11 +115,9 @@ export function TheMusics({ data, show }) {
             </h2>
             <div>
               <ul>
-                {data.results.albummatches.album.map((m) => (
+                {data.map((m) => (
                   <il style={{ display: "block", margin: "1rem auto" }}>
-                    <Link href={`/onemovie/${m.imdbID}`}>
-                      {m.name} --- {m.artist}
-                    </Link>
+                    <Link href={`/onemovie/${m.imdbID}`}>{m.name}</Link>
                   </il>
                 ))}
               </ul>
