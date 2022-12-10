@@ -20,7 +20,7 @@ export default function Digimon() {
 
   return (
     <div>
-      <List
+      <Search
         data={
           error ? { error: "Erro na pesquisa" } : data ? data : { Search: "" }
         }
@@ -29,7 +29,7 @@ export default function Digimon() {
   );
 }
 
-export function List({ data }) {
+export function Search({ data }) {
   if (data.Error) {
     return (
       <>

@@ -8,7 +8,7 @@ import { Fetcher } from '../../components/Fetcher';
 import { Back } from "../../components/Back"
 import { Error } from "../../components/Error"
 
-export default function Digimon() {
+export default function Card() {
     const router = useRouter();
     const { id } = router.query;
 

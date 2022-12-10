@@ -1,62 +1,63 @@
-// import useSWR from "swr";
+import { Input, Space, Spin, Table } from "antd";
 
-// import { useRouter } from "next/router";
-// import { Spin, Typography } from "antd";
-// import { Button } from "antd";
+import { Error } from "../../components/Error";
 
-// import { Error } from "../../components/Error";
-// import { Fetcher } from "../../components/Fetcher";
-// import { Back } from "../../components/Back"
+const { Search } = Input
 
-// export default function Musics() {
-//   const router = useRouter();
-//   const { imdbID } = router.query;
+export function Home({ data, show }) {
+    if (!show) return <div></div>;
 
-//   const { data, error } = useSWR(
-//     `https://digimoncard.io/api-public/getAllCards.php?sort=name&series=Digimon Card Game&sortdirection=asc`,
-//     Fetcher
-//   );
+    if (data.Error) {
+        return <Error error={data.Error} />;
+    }
 
-//   if (error) {
-//     return (
-//       <>
-//         <Error error={error} />
-//         <Back />
-//       </>
-//     );
-//   }
+    if (data.Search === "") {
+        return <Spin />;
+    }
 
-//   if (!data || data.Search === "") {
-//     return <Spin />;
-//   }
+    const onSearch = () => {
+        document.getElementById("form-pesquisar").submit();
+    };
 
-//   return (
-//     <div style={{ marginTop: "20px" }}>
-//       <center>
-//         <div
-//           style={{
-//             background: "white",
-//             maxWidth: "600px",
-//             width: "85%",
-//             margin: "50px auto",
-//             padding: "20px",
-//             borderRadius: "10px",
-//             textAlign: "center",
-//           }}
-//         >
-//           <img src={data.Poster}></img>
-//           <br />
-//           <Typography.Title level={1} style={{ margin: 10 }}>
-//             {data.Title} --- {data.Year}
-//           </Typography.Title>
-//           <Typography.Title level={5} style={{ margin: 10 }}>
-//             {data.Plot}
-//           </Typography.Title>
-//         </div>
-//         <Button style={{ display: "block", margin: "1rem auto" }}>
-//           <Back />
-//         </Button>
-//       </center>
-//     </div>
-//   );
-// }
+    return (
+        <div>
+            <div className="space-align-block">
+                <Space
+                    direction="horizontal"
+                    style={{ width: "100%", justifyContent: "end", padding: "20px" }}
+                >
+                    <form
+                        action="/Search/[key]"
+                        id="form-pesquisar"
+                        style={{ marginBottom: "10px" }}
+                    >
+                        <Search
+                            name="key"
+                            placeholder="Pesquise por cartas"
+                            allowClear
+                            enterButton="Pesquisar"
+                            onSearch={onSearch}
+                            size="small"
+                        />
+                    </form>
+                </Space>
+            </div>
+            <section>
+                <h2> Todas as cartas:</h2>
+                <div style={{
+                    marginLeft: "auto", marginRight: "auto", display: "block", textAlign: "center",
+                    gap: "14px",
+                }}>
+                    {data.map((m) => (
+                        <img src={m.image_url} style={{
+                            margin: "10px",
+                            width: "300px",
+                            borderRadius: "10px",
+                            border: "1px solid black",
+                        }} />
+                    ))}
+                </div>
+            </section >
+        </div >
+    );
+}
