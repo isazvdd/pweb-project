@@ -1,28 +1,33 @@
+import React from "react";
+import { useState } from "react";
 import useSWR from "swr";
 
-import { FetcherSearch } from "../components/Fetcher";
-
-import { useState } from "react";
 import { Input, Space, Typography, Spin, Table } from "antd";
 import "antd/dist/reset.css";
 import Link from "next/link";
 
-import React from "react";
+import { FetcherSearch } from "../components/Fetcher";
 
 const { Search } = Input;
 
 const columns = [
+  // {
+  //   title: "Imagem da carta",
+  //   dataIndex: "imageCards",
+  //   render: (_, image_url) => (
+  //     <img src={"id/" + image_url.id}>{image_url.imageCards}</img>
+  //   ),
+  // },
   {
-    title: 'Título',
-    dataIndex: 'name',
+    title: "Título",
+    dataIndex: "name",
     render: (_, cards) => <a href={"id/" + cards.id}>{cards.name}</a>,
   },
   {
-    title: 'Número da carta',
-    dataIndex: 'cardnumber',
+    title: "Número da carta",
+    dataIndex: "cardnumber",
   },
-]
-  ;
+];
 
 export default function Index() {
   const [url, setUrl] = useState(
@@ -69,16 +74,16 @@ export function TheDigimon({ data, show }) {
   let dados = data.map((m) => {
     return {
       ...m,
-      key: m.id
+      key: m.id,
     };
-  })
+  });
 
   return (
     <div>
       <div className="space-align-block">
         <Space
           direction="horizontal"
-          style={{ width: "100%", justifyContent: "center" }}
+          style={{ width: "100%", justifyContent: "end", padding: "20px" }}
         >
           <form
             action="/Search/[key]"
@@ -97,15 +102,11 @@ export function TheDigimon({ data, show }) {
         </Space>
       </div>
       <section className="container">
-        <h2>
-          {" "}
-          Músicas encontradas:
-        </h2>
+        <h2> Cartas encontradas:</h2>
         <div>
           <Table dataSource={dados} columns={columns} />
         </div>
-      </section >
+      </section>
     </div>
   );
 }
-
