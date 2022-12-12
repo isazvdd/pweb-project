@@ -1,4 +1,4 @@
-import { Input, Space, Spin, Table } from "antd";
+import { Input, Space, Spin } from "antd";
 import Link from "next/link";
 
 import { Error } from "../../components/Error";

@@ -12,7 +12,10 @@ export default function Card() {
   const router = useRouter();
   const { cardnumber } = router.query;
 
-  const { data, error } = useSWR(`https://digimoncard.io/api-public/search.php?card=${cardnumber}`, fetcher)
+  const { data, error } = useSWR(
+    `https://digimoncard.io/api-public/search.php?card=${cardnumber}`,
+    fetcher
+  );
 
   if (error) {
     return (
@@ -40,13 +43,45 @@ export default function Card() {
             borderRadius: "10px",
             textAlign: "center",
           }}
-        >
-        </div>
+        ></div>
         <ul>
           {data.map((m) => (
-            <p>{m.name} --- {m.color}</p>
-
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src={m.image_url}
+                style={{
+                  margin: "10px",
+                  width: "400px",
+                  borderRadius: "10px",
+                  border: "1px solid black",
+                  marginBottom: "10px",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                {m.name} <br />
+                {m.cardnumber} <br />
+                {m.color} <br />
+                {m.attribute} <br />
+              </div>
+            </div>
           ))}
+
           <Back style={{ display: "block", margin: "1rem auto" }} />
         </ul>
       </center>
