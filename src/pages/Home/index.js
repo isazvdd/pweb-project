@@ -55,7 +55,7 @@ export function Home({ data, show }) {
           }}
         >
           {data.map((m) => (
-            <Link href={`../Card/${m.cardnumber}`}>
+            <Link href={`../Card/${m.cardnumber}`} target="_blank">
               <img
                 src={m.image_url}
                 style={{

@@ -1,0 +1,30 @@
+.container {
+  margin-top: 10vh;
+}
+
+.column1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 34px;
+}
+
+.btn-back {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.listInformation {
+  padding-left: 0;
+  display: grid;
+  max-width: 950px;
+  grid-template: repeat(5, 1fr) / repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: min-content 1fr;
+  grid-gap: 10px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+}

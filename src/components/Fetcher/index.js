@@ -8,7 +8,7 @@ export async function FetcherSearch(url) {
 }
 
 
-async function Fetcher(url) {
+export async function Fetcher(url) {
 
     const res = await fetch(url);
 
