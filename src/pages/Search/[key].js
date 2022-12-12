@@ -34,9 +34,7 @@ export function Search({ data }) {
     return (
       <>
         <Error error={data.Error} />
-        <Button style={{ display: "block", margin: "1rem auto" }}>
-          <Back />
-        </Button>
+        <Back style={{ display: "block", margin: "1rem auto" }} />
       </>
     );
   }
@@ -79,9 +77,7 @@ export function Search({ data }) {
           </div>
         </div>
       </div>
-      <Button style={{ display: "block", margin: "1rem auto" }}>
-        <Back />
-      </Button>
+      <Back style={{ display: "block", margin: "1rem auto" }} />
     </section>
   );
 }
