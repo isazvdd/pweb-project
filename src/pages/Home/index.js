@@ -1,7 +1,7 @@
 import { Input, Space, Spin, Table } from "antd";
+import Link from "next/link";
 
 import { Error } from "../../components/Error";
-import { Cards } from "../Cards";
 
 const { Search } = Input;
 
@@ -55,7 +55,7 @@ export function Home({ data, show }) {
           }}
         >
           {data.map((m) => (
-            <a href="../../Cards">
+            <Link href={`../Card/${m.cardnumber}`}>
               <img
                 src={m.image_url}
                 style={{
@@ -65,7 +65,7 @@ export function Home({ data, show }) {
                   border: "1px solid black",
                 }}
               />
-            </a>
+            </Link>
           ))}
         </div>
       </section>
