@@ -8,6 +8,7 @@ import "antd/dist/reset.css";
 import { Error } from "../../components/Error";
 import { Fetcher } from "../../components/Fetcher";
 import { Back } from "../../components/Back";
+import styles from "../../styles/Key.module.css";
 
 export default function Digimon() {
   const router = useRouter();
@@ -34,7 +35,7 @@ export function Search({ data }) {
     return (
       <>
         <Error error={data.Error} />
-        <Back style={{ display: "block", margin: "1rem auto" }} />
+        <Back className={styles.btnBack} />
       </>
     );
   }
@@ -47,37 +48,19 @@ export function Search({ data }) {
     <section className="container">
       <div className="row">
         <div className="col p-0 mt-3">
-          <h2
-            style={{
-              display: "flex",
-              width: "100%",
-              justifyContent: "center",
-              background: "white",
-              borderRadius: "5px",
-              padding: "10px",
-              color: "#1677ff",
-            }}
-          >
-            {" "}
-            Cartas encontradas:
-          </h2>
+          <h2 className={styles.title}> Cartas encontradas:</h2>
           <div>
-            <ul>
+            <ul className={styles.searchResult}>
               {data.map((m) => (
-                <il
-                  style={{
-                    display: "block",
-                    margin: "1rem auto",
-                  }}
-                >
-                  <img src={m.image_url} />
+                <il>
+                  <img src={m.image_url} className={styles.image} />
                 </il>
               ))}
             </ul>
           </div>
         </div>
       </div>
-      <Back style={{ display: "block", margin: "1rem auto" }} />
+      <Back className={styles.btnBack} />
     </section>
   );
 }

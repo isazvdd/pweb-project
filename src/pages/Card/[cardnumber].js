@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import styles from "../../styles/Cardnumber.module.css"
 
 import { useRouter } from "next/router";
 import { Spin } from "antd";
@@ -7,6 +6,7 @@ import { Spin } from "antd";
 import { Fetcher } from "../../components/Fetcher";
 import { Back } from "../../components/Back";
 import { Error } from "../../components/Error";
+import styles from "../../styles/Cardnumber.module.css";
 
 export default function Card() {
   const router = useRouter();
@@ -34,7 +34,10 @@ export default function Card() {
     <div className={styles.container}>
       {data.map((m) => (
         <div className={styles.column1}>
-          <img src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`} />
+          <img
+            src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`}
+            className={styles.image}
+          />
           <div>
             <ul className={styles.listInformation}>
               <li>{m.name}</li>
@@ -47,6 +50,6 @@ export default function Card() {
       ))}
 
       <Back className={styles.btnBack} />
-    </div >
+    </div>
   );
 }

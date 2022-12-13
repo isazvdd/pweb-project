@@ -2,6 +2,7 @@ import { Input, Space, Spin } from "antd";
 import Link from "next/link";
 
 import { Error } from "../../components/Error";
+import styles from "../../styles/Home.module.css";
 
 const { Search } = Input;
 
@@ -23,10 +24,7 @@ export function Home({ data, show }) {
   return (
     <div>
       <div className="space-align-block">
-        <Space
-          direction="horizontal"
-          style={{ width: "100%", justifyContent: "end", padding: "20px" }}
-        >
+        <Space direction="horizontal" className={styles.container}>
           <form
             action="/Search/[key]"
             id="form-pesquisar"
@@ -45,26 +43,10 @@ export function Home({ data, show }) {
       </div>
       <section>
         <h2> Todas as cartas:</h2>
-        <div
-          style={{
-            marginLeft: "auto",
-            marginRight: "auto",
-            display: "block",
-            textAlign: "center",
-            gap: "14px",
-          }}
-        >
+        <div className={styles.allCards}>
           {data.map((m) => (
             <Link href={`../Card/${m.cardnumber}`} target="_blank">
-              <img
-                src={m.image_url}
-                style={{
-                  margin: "10px",
-                  width: "300px",
-                  borderRadius: "10px",
-                  border: "1px solid black",
-                }}
-              />
+              <img src={m.image_url} className={styles.images} />
             </Link>
           ))}
         </div>
