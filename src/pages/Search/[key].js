@@ -10,6 +10,7 @@ import { Fetcher } from "../../components/Fetcher";
 import { Back } from "../../components/Back";
 
 import styles from "../../styles/Key.module.css";
+import { Header } from "../../components/Header";
 
 const columns = [
   {
@@ -75,16 +76,19 @@ export function Search({ data }) {
   }
 
   return (
-    <section className="container">
-      <div className="row">
-        <div className="col p-0 mt-3">
-          <h2 className={styles.title}> Cartas encontradas:</h2>
-          <div>
-            <Table className={styles.tableResult} dataSource={dados} columns={columns} />
+    <div>
+      <Header />
+      <section className="container">
+        <div className="row">
+          <div className="col p-0 mt-3">
+            <h2 className={styles.title}> Cartas encontradas:</h2>
+            <div>
+              <Table className={styles.tableResult} dataSource={dados} columns={columns} />
+            </div>
           </div>
         </div>
-      </div>
-      <Back className={styles.btnBack} />
-    </section>
+        <Back className={styles.btnBack} />
+      </section>
+    </div>
   );
 }

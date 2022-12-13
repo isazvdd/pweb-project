@@ -1,10 +1,10 @@
-import { Input, Space, Spin } from "antd";
+import { Spin } from "antd";
 import Link from "next/link";
 
 import { Error } from "../../components/Error";
+import { Header } from "../../components/Header";
 import styles from "../../styles/Home.module.css";
 
-const { Search } = Input;
 
 export function Home({ data, show }) {
   if (!show) return <div></div>;
@@ -17,31 +17,11 @@ export function Home({ data, show }) {
     return <Spin />;
   }
 
-  const onSearch = () => {
-    document.getElementById("form-pesquisar").submit();
-  };
-
   return (
     <div>
-      <div className="space-align-block">
-        <Space direction="horizontal" className={styles.container}>
-          <form
-            action="/Search/[key]"
-            style={{ marginBottom: "10px" }}
-          >
-            <Search
-              name="key"
-              placeholder="Pesquise por cartas"
-              allowClear
-              enterButton="Pesquisar"
-              onSearch={onSearch}
-              size="small"
-            />
-          </form>
-        </Space>
-      </div>
+      <Header />
       <section>
-        <h2> Todas as cartas:</h2>
+        <h2 className={styles.title}> Todas as cartas:</h2>
         <div className={styles.allCards}>
           {data.map((m) => (
             <Link href={`../Card/${m.cardnumber}`}>

@@ -1,7 +1,12 @@
-.container {
+.title {
   width: 100%;
-  justify-content: end;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#157ffb, #67aeff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .allCards {
@@ -12,9 +17,34 @@
   gap: 14px;
 }
 
+.header {
+  background: #157ffb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 14px;
+  margin-bottom: 28px;
+  color: #fff;
+  font-size: 54px;
+}
+
+.logoHeader {
+  font-size: 24px;
+  background: linear-gradient(#ffffff, #b5b5b5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
 .images {
   margin: 10px;
-  width: 300px;
+  width: 200px;
   border-radius: 10px;
   border: 1px solid black;
+  transition: transform 0.4s;
+}
+
+.images:hover {
+  transform: scale(1.05);
 }
