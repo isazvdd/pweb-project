@@ -27,7 +27,6 @@ export function Home({ data, show }) {
         <Space direction="horizontal" className={styles.container}>
           <form
             action="/Search/[key]"
-            id="form-pesquisar"
             style={{ marginBottom: "10px" }}
           >
             <Search
@@ -45,7 +44,7 @@ export function Home({ data, show }) {
         <h2> Todas as cartas:</h2>
         <div className={styles.allCards}>
           {data.map((m) => (
-            <Link href={`../Card/${m.cardnumber}`} target="_blank">
+            <Link href={`../Card/${m.cardnumber}`}>
               <img src={m.image_url} className={styles.images} />
             </Link>
           ))}

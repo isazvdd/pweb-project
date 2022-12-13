@@ -8,23 +8,21 @@
   color: #1677ff;
 }
 
-.searchResult {
-  /* margin-left: auto;
-  margin-right: auto; */
-  align-items: center;
-  text-align: center;
-  display: block;
-  gap: 14px;
+.tableResult {
+  margin: auto;
+  width: 100%;
 }
 
-.image {
+.imageTable {
   margin: 10px;
-  width: 300px;
+  width: 75px;
   border-radius: 10px;
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: column;
+  transition: transform 0.4s;
+}
+
+.imageTable:hover {
+  transform: scale(1.5);
 }
 
 .btn-back {
