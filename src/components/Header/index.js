@@ -13,6 +13,7 @@ export function Header() {
             <span className={styles.logoHeader}><a className={styles.logoHeader} href={"/"}>DigiCards</a></span>
             <Space direction="horizontal" className={styles.container}>
                 <form
+                    id="form-pesquisar"
                     action="/Search/[key]"
                 >
                     <Search

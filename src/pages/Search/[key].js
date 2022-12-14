@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 
 import { Spin, Table } from "antd";
+
 import "antd/dist/reset.css";
 
 import { Error } from "../../components/Error";
@@ -21,10 +22,12 @@ const columns = [
   {
     title: 'Nome da carta',
     dataIndex: 'name',
+    sorter: (a, b) => a.name.length - b.name.length
   },
   {
     title: 'Número da carta',
     dataIndex: 'cardnumber',
+    sorter: (a, b) => a.name.length - b.name.length
   },
 ];
 
@@ -75,17 +78,18 @@ export function Search({ data }) {
     }
   }
 
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log('params', pagination, filters, sorter, extra);
+  };
+
   return (
     <div>
       <Header />
-      <section className="container">
-        <div className="row">
-          <div className="col p-0 mt-3">
-            <h2 className={styles.title}> Cartas encontradas:</h2>
-            <div>
-              <Table className={styles.tableResult} dataSource={dados} columns={columns} />
-            </div>
-          </div>
+      <section>
+
+        <h2 className={styles.title}> Cartas encontradas:</h2>
+        <div>
+          <Table className={styles.tableResult} dataSource={dados} columns={columns} onChange={onChange} />
         </div>
         <Back className={styles.btnBack} />
       </section>

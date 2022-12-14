@@ -6,26 +6,31 @@
 }
 
 .column1 {
+  max-width: 90%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding-bottom: 34px;
 }
 
+.column2 {
+  float: left;
+  padding: 10px;
+}
+
 .image {
-  margin: 10px;
-  width: 300px;
-  border-radius: 10px;
-  border: 1px solid black;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #000000b0;
+  min-height: 368px;
+  min-width: 265px;
+  margin-left: 150px;
 }
 
 .listInformation {
-  margin: 1rem 3rem;
-  max-width: 950px;
-  justify-content: center;
-  align-items: center;
-
+  grid-template-columns: repeat(2, 1fr);
   display: grid;
   grid-template: repeat(5, 1fr) / repeat(6, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -36,8 +41,57 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.listInformation2 {
+  list-style: none;
+  min-width: 150px;
+  text-align: left;
+  background: #007bff;
+  padding: 5px;
+  display: block;
+  border-radius: 5px;
+  color: white;
+}
+
+.spanInfo {
+  font-size: 0.8em;
+}
+
 .btn-back {
   display: flex;
   justify-content: center;
   margin: 20px auto;
+}
+
+.cardEffect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 970px) {
+  .column1 {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 34px;
+  }
+
+  .listInformation {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: min-content 1fr;
+    grid-gap: 40px;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .column2 {
+    float: left;
+    padding: 10px;
+  }
 }
