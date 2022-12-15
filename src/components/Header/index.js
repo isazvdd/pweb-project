@@ -20,7 +20,6 @@ export function Header() {
                         name="key"
                         placeholder="Pesquise por cartas"
                         allowClear
-                        enterButton="Pesquisar"
                         onSearch={onSearch}
                         size="small"
                     />

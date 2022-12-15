@@ -9,15 +9,16 @@ import "antd/dist/reset.css";
 import { Error } from "../../components/Error";
 import { Fetcher } from "../../components/Fetcher";
 import { Back } from "../../components/Back";
+import { Header } from "../../components/Header";
 
 import styles from "../../styles/Key.module.css";
-import { Header } from "../../components/Header";
+import Link from "next/link";
 
 const columns = [
   {
     title: 'Carta',
     dataIndex: 'image',
-    render: (_, movie) => <a href={"../Cards/" + movie.cardnumber}><img className={styles.imageTable} src={movie.image_url} /></a>,
+    render: (_, movie) => <Link href={"../Cards/" + movie.cardnumber}><img className={styles.imageTable} src={movie.image_url} /></Link>,
   },
   {
     title: 'Nome da carta',

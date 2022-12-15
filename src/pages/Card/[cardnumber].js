@@ -36,65 +36,88 @@ export default function Card() {
       <Header />
       <div className={styles.container}>
         {data.map((m) => (
-          <div className={styles.column1}>
-            <img
-              src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`}
-              className={styles.image}
-            />
+          <div >
+
+            <div className={styles.column1}>
+              <img
+                src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`}
+                className={styles.image}
+              />
+            </div>
+
             <div className={styles.column2}>
-              <h1>{m.name}</h1>
-              <ul className={styles.listInformation}>
+              <div style={{ paddingLeft: "14px" }}>
+                <h1 className={styles.cardName}>{m.name}</h1>
+                <ul className={styles.listInformation}>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo}>Cor</span>
-                  <p style={{ margin: "4px 8px" }}>{m.color}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo}>Cor</span>
+                    <p style={{ margin: "4px 8px" }}>{m.color}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo}>Número</span>
-                  <p style={{ margin: "4px 8px" }}>{m.cardnumber}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo}>Número</span>
+                    <p style={{ margin: "4px 8px" }}>{m.cardnumber}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Type</span>
-                  <p style={{ margin: "4px 8px" }}>{m.type}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Type</span>
+                    <p style={{ margin: "4px 8px" }}>{m.type}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >DP</span>
-                  <p style={{ margin: "4px 8px" }}>{m.dp}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >DP</span>
+                    <p style={{ margin: "4px 8px" }}>{m.dp}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Level</span>
-                  <p style={{ margin: "4px 8px" }}>{m.level}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Level</span>
+                    <p style={{ margin: "4px 8px" }}>{m.level}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Custo de jogo</span>
-                  <p style={{ margin: "4px 8px" }}>{m.play_cost}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Custo de jogo</span>
+                    <p style={{ margin: "4px 8px" }}>{m.play_cost}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Atributo</span>
-                  <p style={{ margin: "4px 8px" }}>{m.attribute}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Atributo</span>
+                    <p style={{ margin: "4px 8px" }}>{m.attribute}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Artista</span>
-                  <p style={{ margin: "4px 8px" }}>{m.artist}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Artista</span>
+                    <p style={{ margin: "4px 8px" }}>{m.artist}</p>
+                  </li>
 
-                <li className={styles.listInformation2}>
-                  <span className={styles.spanInfo} >Serie</span>
-                  <p style={{ margin: "4px 8px" }}>{m.series}</p>
-                </li>
+                  <li className={styles.listInformation2}>
+                    <span className={styles.spanInfo} >Serie</span>
+                    <p style={{ margin: "4px 8px" }}>{m.series}</p>
+                  </li>
 
-              </ul>
+                </ul>
 
-              <h2>Efeito da Carta</h2>
-              <div className={styles.cardEffect}>
-                {m.maineffect}
+                <hr className={styles.divider} />
+
+                <h2>Efeito da Carta</h2>
+                <div>
+                  <span>{m.maineffect}</span>
+                </div>
+
+                <hr className={styles.divider} />
+
+                <h2>Efeito da Carta</h2>
+                <div>
+                  <span>{m.soureeffect}</span>
+                </div>
+
+                <hr className={styles.divider} />
+
+                <h2>Nome do conjunto</h2>
+                <div>
+                  <span>{m.set_name}</span>
+                </div>
+
               </div>
             </div>
           </div>

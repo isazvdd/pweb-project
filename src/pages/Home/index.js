@@ -24,7 +24,7 @@ export function Home({ data, show }) {
         <h2 className={styles.title}> Todas as cartas:</h2>
         <div className={styles.allCards}>
           {data.map((m) => (
-            <Link href={`../Card/${m.cardnumber}`}>
+            <Link href={"../Card/" + m.cardnumber}>
               <img src={m.image_url} className={styles.images} />
             </Link>
           ))}
