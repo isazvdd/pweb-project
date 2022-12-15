@@ -18,7 +18,7 @@ const columns = [
   {
     title: 'Carta',
     dataIndex: 'image',
-    render: (_, movie) => <Link href={"../Cards/" + movie.cardnumber}><img className={styles.imageTable} src={movie.image_url} /></Link>,
+    render: (_, movie) => <Link href={"../Card/" + movie.cardnumber}><img className={styles.imageTable} src={movie.image_url} /></Link>,
   },
   {
     title: 'Nome da carta',
@@ -72,7 +72,7 @@ export function Search({ data }) {
       key: m.cardnumber
     };
   }) : () => {
-    data.image_url = <a href={"../Cards/" + m.cardnumber}><img src={m.image_url} /></a>;
+    data.image_url = <a href={"../Card/" + m.cardnumber}><img src={m.image_url} /></a>;
     return {
       ...data,
       key: data.cardnumber
@@ -96,4 +96,32 @@ export function Search({ data }) {
       </section>
     </div>
   );
+}
+
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { key: "tt0095801" } },
+      { params: { key: "tt0033152" } },
+      { params: { key: "tt0015400" } },
+      { params: { key: "tt0041149" } },
+      { params: { key: "tt0044388" } },
+      { params: { key: "tt0098746" } },
+      { params: { key: "tt0046322" } },
+      { params: { key: "tt0046497" } },
+      { params: { key: "tt0044389" } },
+    ],
+    fallback: true
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://www.omdbapi.com/?apikey=f1cbc41e&i=${params.key}`)
+  const movie = await res.json();
+  return {
+    props: {
+      movie
+    }
+  }
 }

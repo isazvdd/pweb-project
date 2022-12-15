@@ -31,13 +31,14 @@ export default function Card() {
     return <Spin />;
   }
 
+  document.body.style.margin = 0;
+
   return (
     <div>
       <Header />
       <div className={styles.container}>
         {data.map((m) => (
           <div >
-
             <div className={styles.column1}>
               <img
                 src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`}
@@ -61,13 +62,13 @@ export default function Card() {
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Type</span>
+                    <span className={styles.spanInfo}>Tipo</span>
                     <p style={{ margin: "4px 8px" }}>{m.type}</p>
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >DP</span>
-                    <p style={{ margin: "4px 8px" }}>{m.dp}</p>
+                    <span className={styles.spanInfo}>Raridade</span>
+                    <p style={{ margin: "4px 8px" }}>{m.cardrarity}</p>
                   </li>
 
                   <li className={styles.listInformation2}>

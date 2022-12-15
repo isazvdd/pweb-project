@@ -9,12 +9,8 @@ export async function FetcherSearch(url) {
 
 
 export async function Fetcher(url) {
-
     const res = await fetch(url);
-
     const json = await res.json();
-
     return json;
-
 }
 
