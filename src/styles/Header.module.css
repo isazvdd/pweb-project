@@ -1,0 +1,19 @@
+.header {
+  background: #157ffb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 14px;
+  margin-bottom: 28px;
+  color: #fff;
+  font-size: 54px;
+}
+
+.logoHeader {
+  font-size: 24px;
+  background: linear-gradient(#ffffff, #b5b5b5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}

@@ -1,0 +1,32 @@
+.title {
+  display: flex;
+  width: "100%";
+  justify-content: "center";
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  color: #1677ff;
+}
+
+.tableResult {
+  margin: auto;
+  width: 100%;
+}
+
+.imageTable {
+  margin: 10px;
+  width: 75px;
+  border-radius: 10px;
+  border: 1px solid black;
+  transition: transform 0.4s;
+}
+
+.imageTable:hover {
+  transform: scale(1.5);
+}
+
+.btn-back {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
