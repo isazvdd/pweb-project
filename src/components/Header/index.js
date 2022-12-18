@@ -4,7 +4,7 @@ import { Space, Input } from "antd";
 
 const { Search } = Input;
 
-export default function Header() {
+export function Header() {
   const onSearch = () => {
     document.getElementById("form-pesquisar").submit();
   };
