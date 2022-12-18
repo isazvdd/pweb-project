@@ -6,7 +6,7 @@ import { Error } from "../../components/Error";
 import { Header } from "../../components/Header";
 import styles from "../../styles/Home.module.css";
 
-export default function Home({ data, show }) {
+export function Home({ data, show }) {
   if (!show) return <div></div>;
 
   if (data.Error) {
