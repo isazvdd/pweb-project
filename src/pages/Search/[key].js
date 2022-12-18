@@ -16,19 +16,23 @@ import Link from "next/link";
 
 const columns = [
   {
-    title: 'Carta',
-    dataIndex: 'image',
-    render: (_, movie) => <Link href={"../Card/" + movie.cardnumber}><img className={styles.imageTable} src={movie.image_url} /></Link>,
+    title: "Carta",
+    dataIndex: "image",
+    render: (_, movie) => (
+      <Link href={"../Card/" + movie.cardnumber}>
+        <img className={styles.imageTable} src={movie.image_url} />
+      </Link>
+    ),
   },
   {
-    title: 'Nome da carta',
-    dataIndex: 'name',
-    sorter: (a, b) => a.name.length - b.name.length
+    title: "Nome da carta",
+    dataIndex: "name",
+    sorter: (a, b) => a.name.length - b.name.length,
   },
   {
-    title: 'Número da carta',
-    dataIndex: 'cardnumber',
-    sorter: (a, b) => a.name.length - b.name.length
+    title: "Número da carta",
+    dataIndex: "cardnumber",
+    sorter: (a, b) => a.name.length - b.name.length,
   },
 ];
 
@@ -66,38 +70,47 @@ export function Search({ data }) {
     return <Spin />;
   }
 
-  let dados = Array.isArray(data) ? data.map((m) => {
-    return {
-      ...m,
-      key: m.cardnumber
-    };
-  }) : () => {
-    data.image_url = <a href={"../Card/" + m.cardnumber}><img src={m.image_url} /></a>;
-    return {
-      ...data,
-      key: data.cardnumber
-    }
-  }
+  let dados = Array.isArray(data)
+    ? data.map((m) => {
+        return {
+          ...m,
+          key: m.cardnumber,
+        };
+      })
+    : () => {
+        data.image_url = (
+          <a href={"../Card/" + m.cardnumber}>
+            <img src={m.image_url} />
+          </a>
+        );
+        return {
+          ...data,
+          key: data.cardnumber,
+        };
+      };
 
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
+    console.log("params", pagination, filters, sorter, extra);
   };
 
   return (
     <div>
       <Header />
       <section>
-
         <h2 className={styles.title}> Cartas encontradas:</h2>
         <div>
-          <Table className={styles.tableResult} dataSource={dados} columns={columns} onChange={onChange} />
+          <Table
+            className={styles.tableResult}
+            dataSource={dados}
+            columns={columns}
+            onChange={onChange}
+          />
         </div>
         <Back className={styles.btnBack} />
       </section>
     </div>
   );
 }
-
 
 export async function getStaticPaths() {
   return {
@@ -112,16 +125,18 @@ export async function getStaticPaths() {
       { params: { key: "tt0046497" } },
       { params: { key: "tt0044389" } },
     ],
-    fallback: true
-  }
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`https://www.omdbapi.com/?apikey=f1cbc41e&i=${params.key}`)
+  const res = await fetch(
+    `https://www.omdbapi.com/?apikey=f1cbc41e&i=${params.key}`
+  );
   const movie = await res.json();
   return {
     props: {
-      movie
-    }
-  }
+      movie,
+    },
+  };
 }
