@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import { Spin } from "antd";
 
-import { Header } from "../../components/Header"
+import { Header } from "../../components/Header";
 import { Fetcher } from "../../components/Fetcher";
 import { Back } from "../../components/Back";
 import { Error } from "../../components/Error";
@@ -38,7 +38,7 @@ export default function Card() {
       <Header />
       <div className={styles.container}>
         {data.map((m) => (
-          <div >
+          <div>
             <div className={styles.column1}>
               <img
                 src={`https://images.digimoncard.io/images/cards/${m.cardnumber}.jpg`}
@@ -50,7 +50,6 @@ export default function Card() {
               <div style={{ paddingLeft: "14px" }}>
                 <h1 className={styles.cardName}>{m.name}</h1>
                 <ul className={styles.listInformation}>
-
                   <li className={styles.listInformation2}>
                     <span className={styles.spanInfo}>Cor</span>
                     <p style={{ margin: "4px 8px" }}>{m.color}</p>
@@ -72,30 +71,29 @@ export default function Card() {
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Level</span>
+                    <span className={styles.spanInfo}>Level</span>
                     <p style={{ margin: "4px 8px" }}>{m.level}</p>
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Custo de jogo</span>
+                    <span className={styles.spanInfo}>Custo de jogo</span>
                     <p style={{ margin: "4px 8px" }}>{m.play_cost}</p>
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Atributo</span>
+                    <span className={styles.spanInfo}>Atributo</span>
                     <p style={{ margin: "4px 8px" }}>{m.attribute}</p>
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Artista</span>
+                    <span className={styles.spanInfo}>Artista</span>
                     <p style={{ margin: "4px 8px" }}>{m.artist}</p>
                   </li>
 
                   <li className={styles.listInformation2}>
-                    <span className={styles.spanInfo} >Serie</span>
+                    <span className={styles.spanInfo}>Serie</span>
                     <p style={{ margin: "4px 8px" }}>{m.series}</p>
                   </li>
-
                 </ul>
 
                 <hr className={styles.divider} />
@@ -118,12 +116,10 @@ export default function Card() {
                 <div>
                   <span>{m.set_name}</span>
                 </div>
-
               </div>
             </div>
           </div>
         ))}
-
       </div>
       <Back className={styles.btnBack} />
     </div>
