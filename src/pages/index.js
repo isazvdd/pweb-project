@@ -5,7 +5,7 @@ import useSWR from "swr";
 import "antd/dist/reset.css";
 
 import { FetcherSearch } from "../components/Fetcher";
-import { Home } from "./Home";
+import { Home } from "../components/Home";
 
 export default function Index() {
   const [url, setUrl] = useState(
