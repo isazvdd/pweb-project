@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { useRouter } from "next/router";
 
-export function Back() {
+export default function Back() {
   const router = useRouter();
 
   return (
