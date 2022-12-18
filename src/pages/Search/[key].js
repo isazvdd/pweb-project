@@ -112,31 +112,31 @@ export function Search({ data }) {
   );
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { key: "tt0095801" } },
-      { params: { key: "tt0033152" } },
-      { params: { key: "tt0015400" } },
-      { params: { key: "tt0041149" } },
-      { params: { key: "tt0044388" } },
-      { params: { key: "tt0098746" } },
-      { params: { key: "tt0046322" } },
-      { params: { key: "tt0046497" } },
-      { params: { key: "tt0044389" } },
-    ],
-    fallback: true,
-  };
-}
+// export async function getStaticPaths() {
+//   return {
+//     paths: [
+//       { params: { key: "tt0095801" } },
+//       { params: { key: "tt0033152" } },
+//       { params: { key: "tt0015400" } },
+//       { params: { key: "tt0041149" } },
+//       { params: { key: "tt0044388" } },
+//       { params: { key: "tt0098746" } },
+//       { params: { key: "tt0046322" } },
+//       { params: { key: "tt0046497" } },
+//       { params: { key: "tt0044389" } },
+//     ],
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `https://www.omdbapi.com/?apikey=f1cbc41e&i=${params.key}`
-  );
-  const movie = await res.json();
-  return {
-    props: {
-      movie,
-    },
-  };
-}
+// export async function getStaticProps({ params }) {
+//   const res = await fetch(
+//     `https://www.omdbapi.com/?apikey=f1cbc41e&i=${params.key}`
+//   );
+//   const movie = await res.json();
+//   return {
+//     props: {
+//       movie,
+//     },
+//   };
+// }
