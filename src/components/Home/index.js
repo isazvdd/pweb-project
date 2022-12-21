@@ -1,11 +1,14 @@
 import React from "react";
-import { Spin, Popover, Button } from "antd";
 import Link from "next/link";
 
-import { Error } from "../../components/Error";
-import { Header } from "../../components/Header";
-import styles from "../../styles/Home.module.css";
+import { Spin, Popover, Button } from "antd";
+
+import { Error } from "../Error";
+import { Header } from "../Header";
 import { Back } from "../Back";
+
+import styles from "../../styles/Home.module.css";
+import { About } from "../About";
 
 export function Home({ data, show }) {
   if (!show) return <div></div>;
@@ -21,6 +24,7 @@ export function Home({ data, show }) {
   return (
     <div>
       <Header />
+      <About />
       <section>
         <h2 className={styles.title}> Todas as cartas:</h2>
         <div className={styles.allCards}>
